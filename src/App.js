@@ -6,6 +6,7 @@ import MainPanel from './components/Dashboard';
 import CategoryPage from './pages/CategoryPage';
 import SubcategoryPage from './pages/SubcategoryPage';
 import ListPage from './pages/ListPage';
+import SettingsPage from './pages/SettingsPage';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
             </div>
           } />
           <Route path="/community" element={<h1>커뮤니티 페이지</h1>} />
-          <Route path="/settings" element={<h1>설정 페이지</h1>} />
+          <Route path="/settings" element={<SettingsPage />} />
           <Route path="/category/:name" element={<CategoryPage />} />
           <Route path="/category/:name/:sub" element={<SubcategoryPage />} />
           <Route path="/category/:name/:sub/list" element={<ListPage />} />

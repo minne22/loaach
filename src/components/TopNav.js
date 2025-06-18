@@ -3,8 +3,11 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClients';
+// import ProfileMenu from './ProfileMenu'; ← 나중에 추가 예정
 
 const TopNav = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
