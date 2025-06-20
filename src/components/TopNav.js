@@ -1,16 +1,16 @@
-// src/components/TopNav.js
-
 import React, { useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClients';
 import ProfileMenu from './ProfileMenu';
 
 const TopNav = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const tabs = [
-    { name: '홈', path: '/' },
+    { name: '종합 정보', path: '/' },
+    { name: '업적', path: '/category/위업' },
     { name: '커뮤니티', path: '/community' },
     { name: '설정', path: '/settings' },
   ];
@@ -44,21 +44,21 @@ const TopNav = () => {
         justifyContent: 'space-between',
         padding: '16px 24px',
         borderBottom: '1px solid #eee',
-        backgroundColor: '#fff',
-        fontFamily: 'sans-serif',
+        backgroundColor: '#fff'
       }}
     >
-      {/* 왼쪽: 로고 + 탭 */}
+      {/* 로고 */}
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <NavLink
           to="/"
           style={{
+            fontFamily: 'SUITHeavy',
             fontWeight: 'bold',
             fontSize: '18px',
             marginRight: '40px',
             color: 'black',
             textDecoration: 'none',
-            marginBottom : '1px'
+            marginBottom: '1px'
           }}
         >
           UPLOA.GG
@@ -83,7 +83,7 @@ const TopNav = () => {
         ))}
       </div>
 
-      {/* 오른쪽: 로그인 / 프로필 메뉴 */}
+      {/* 프로필 또는 로그인 */}
       <div>
         {!user ? (
           <button

@@ -1,39 +1,40 @@
-// src/components/settings/SettingsSidebar.js
+// src/components/settings/SettingsSidebarContent.js
 
 import React from 'react';
 
 const menuItems = [
-    '내 프로필',
-    '대표 캐릭터',
-    '부계정 캐릭터 관리',
-    '로스트아크 설정'
+  '프로필 설정',
+  '대표 캐릭터 설정',
+  '부계정 관리',
+  '자동 갱신 설정',
+  '계정 관리',
 ];
 
-const SettingsSidebar = ({ activeMenu, setActiveMenu }) => {
+const SettingsSidebarContent = ({ selected, setSelected }) => {
   return (
-    <aside style={{
-      width: '200px',
-      borderRight: '1px solid #ddd',
-      padding: '20px',
-    }}>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {menuItems.map((item) => (
-          <li
-            key={item}
-            onClick={() => setActiveMenu(item)}
-            style={{
-              padding: '10px',
-              cursor: 'pointer',
-              fontWeight: activeMenu === item ? 'bold' : 'normal',
-              color: activeMenu === item ? '#000' : '#888',
-            }}
-          >
-            {item}
-          </li>
-        ))}
-      </ul>
-    </aside>
+    <div>
+      {menuItems.map((item) => (
+        <div
+          key={item}
+          onClick={() => setSelected(item)}
+          style={{
+            padding: '12px 14px',
+            cursor: 'pointer',
+            color: selected === item ? '#ffffff' : 'rgba(255, 255, 255, 0.85)',
+            fontWeight: selected === item ? 'bold' : 'normal',
+            backgroundColor: 'transparent',
+            borderRadius: '0',
+            marginBottom: '12px'
+          }}
+        >
+          {item}
+        </div>
+      ))}
+      <div style={{ marginTop: '20px', color: '#ce91ff', fontSize: '14px', cursor: 'pointer' }}>
+        회원 탈퇴
+      </div>
+    </div>
   );
 };
 
-export default SettingsSidebar;
+export default SettingsSidebarContent;

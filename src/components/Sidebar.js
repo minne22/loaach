@@ -5,12 +5,12 @@ import myImage from '../assets/my_image.png';
 const Sidebar = () => {
   return (
     <div style={{
-      width: '400px',
-      height: '100vh',
+      width: '80%',
+      height: '100%',
       backgroundImage: `url(${kadanBg})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      padding: '80px 80px 40px 80px',
+      padding: '50px 40px 40px 40px',
       boxSizing: 'border-box',
       display: 'flex',
       flexDirection: 'column',
@@ -20,8 +20,9 @@ const Sidebar = () => {
       <div>
         {/* 닉네임 */}
         <div style={{
-          fontSize: '16px',
+          fontSize: '1.0em',
           fontWeight: '600',
+          textAlign: 'center',
           color: '#b68fff',
           marginBottom: '20px',
           height: '20px'
@@ -31,15 +32,20 @@ const Sidebar = () => {
 
         {/* 프로필 */}
         <div style={{
-          width: '240px',
-          height: '240px',
-          backgroundColor: '#eee',
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
           marginBottom: '40px'
         }}>
           <img
             src={myImage}
             alt="프로필"
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            style={{
+              width: '60%',
+              height: 'auto',
+              borderRadius: '8px',
+              objectFit: 'contain'
+            }}
           />
         </div>
 
@@ -49,9 +55,9 @@ const Sidebar = () => {
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
-            marginBottom: '18px'
+            marginBottom: '12px'
           }}>
-            <span style={{ fontSize: '14px' }}>👑</span>
+            <span style={{ fontSize: '13px' }}>👑</span>
             <span style={{
               fontSize: '14px',
               fontWeight: 'bold',
@@ -63,21 +69,22 @@ const Sidebar = () => {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: '110px auto',
-            rowGap: '10px',
+            gridTemplateColumns: '90px auto',
+            rowGap: '8px',
             color: '#fff',
-            fontSize: '14px',
-            marginBottom: '10px'
+            fontSize: '13px',
+            marginBottom: '0px'
           }}>
             <div style={{ fontWeight: 'bold' }}>전체 현황</div>
             <div>300개 / 1800개</div>
             <div style={{ fontWeight: 'bold' }}>획득 경험치</div>
-            <div>1500점</div>
+            <div>1500점 / 45000점</div>
             <div style={{ fontWeight: 'bold' }}>전체 진행률</div>
             <div>8.75%</div>
+            <div style={{ gridColumn: '2 / 3' }}>
+              <progress value={8.75} max={100} style={{ width: '100%', height: '8px' }} />
+            </div>
           </div>
-
-          <progress value={8.75} max={100} style={{ width: '100%', height: '8px' }} />
         </div>
 
         {/* 칭호 블럭 */}
@@ -86,11 +93,11 @@ const Sidebar = () => {
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
-            marginBottom: '18px'
+            marginBottom: '12px'
           }}>
-            <span style={{ fontSize: '14px' }}>📜</span>
+            <span style={{ fontSize: '13px' }}>📜</span>
             <span style={{
-              fontSize: '14px',
+              fontSize: '13px',
               fontWeight: 'bold',
               background: 'linear-gradient(to bottom, #f9da8a, #b97a1b)',
               WebkitBackgroundClip: 'text',
@@ -100,19 +107,20 @@ const Sidebar = () => {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: '110px auto',
-            rowGap: '10px',
+            gridTemplateColumns: '90px auto',
+            rowGap: '8px',
             color: '#fff',
-            fontSize: '14px',
-            marginBottom: '10px'
+            fontSize: '13px',
+            marginBottom: '4px'
           }}>
             <div style={{ fontWeight: 'bold' }}>현재 칭호</div>
             <div>백문이 불여일견</div>
             <div style={{ fontWeight: 'bold' }}>칭호 진행률</div>
             <div>45.00%</div>
+            <div style={{ gridColumn: '2 / 3' }}>
+              <progress value={45.00} max={100} style={{ width: '100%', height: '8px' }} />
+            </div>
           </div>
-
-          <progress value={45.00} max={100} style={{ width: '100%', height: '8px' }} />
         </div>
       </div>
 
@@ -121,7 +129,7 @@ const Sidebar = () => {
         marginTop: '40px',
         textAlign: 'center',
         fontSize: '12px',
-        color: '#ccc'
+        color: 'gray'
       }}>
         © Smilegate RPG
       </div>
